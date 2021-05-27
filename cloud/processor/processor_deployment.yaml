@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mosquitto-deployment
+  name: processor-deployment
 spec:
   selector:
     matchLabels:
@@ -12,10 +12,7 @@ spec:
       labels:
         app: mosquitto
     spec:
-      hostNetwork: true
-      dnsPolicy: ClusterFirstWithHostNet
       containers:
-      - name: mosquitto
-        image: alicehua11/mosquitto:v1
-        ports:
-        - containerPort: 1883
+      - name: processor
+        image: alicehua11/processor:latest
+

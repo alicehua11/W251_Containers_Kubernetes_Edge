@@ -13,4 +13,6 @@ WORKDIR /app
 # example from https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_gui/py_video_display/py_video_display.html
 COPY cam.py ./
 COPY haarcascade_frontalface_default.xml ./
+
 CMD ["python3","cam.py"]
+

@@ -15,7 +15,7 @@ local_mqttclient.on_connect = on_connect_local
 local_mqttclient.connect(LOCAL_MQTT_HOST, LOCAL_MQTT_PORT, 60)
 print('Connected to local broker')
 
-cam = cv2.VideoCapture("/dev/video0")
+cam = cv2.VideoCapture(0, cv2.CAP_V4L2)
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 while(True):
@@ -29,7 +29,7 @@ while(True):
         face = gray[y:y+h, x:x+w]
         rc,png = cv2.imencode('.png', face)
         msg = png.tobytes()
-        #print(msg)
+        print(msg)
         try:
             local_mqttclient.publish(LOCAL_MQTT_TOPIC, msg, qos=0, retain=False)
         except Exception as e:
