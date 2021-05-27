@@ -3,11 +3,12 @@ kind: Service
 metadata:
   name: mosquitto-service
   labels:
-    run: mosquitto
+    app: mosquitto
 spec:
   type: NodePort
   ports:
-  - port: 1883
+  - nodePort: 32364
+    port: 1883
     protocol: TCP
     targetPort: 1883
   selector:

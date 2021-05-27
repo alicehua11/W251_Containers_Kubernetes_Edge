@@ -5,8 +5,8 @@ LOCAL_MQTT_HOST="mosquitto-service"
 LOCAL_MQTT_PORT=1883
 LOCAL_MQTT_TOPIC="faces"
 
-REMOTE_MQTT_HOST="3.89.49.143"
-REMOTE_MQTT_PORT="32364"
+REMOTE_MQTT_HOST="ec2-34-206-52-24.compute-1.amazonaws.com"
+REMOTE_MQTT_PORT=32364
 REMOTE_MQTT_TOPIC="faces"
 
 def on_connect_local(client, userdata, flags, rc):

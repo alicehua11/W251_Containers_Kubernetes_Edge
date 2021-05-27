@@ -5,7 +5,27 @@ This repository contains my homework 3 **Containers, Kubernetes, and IoT/Edge**.
 The following is the directory structure of this homework.
 
 ```
++-- cloud
+|   +-- broker
+|   +-- processor
++-- edge
+    +-- broker
+        +-- Dockerfile
+    +-- detector
+        +-- Dockerfile
+        +-- docker_script.sh
+        +-- cam.py
+   +-- logger 
+       +-- Dockerfile
+       +-- docker_script.sh
+       +-- logger.py
+   +-- forwarder
+      +-- Dockerfile
+      +-- docker_script.sh
+      +-- forwarder.py    
 ```
+
+![](hw3.png)
 
 ### How it works
 `insert image here`

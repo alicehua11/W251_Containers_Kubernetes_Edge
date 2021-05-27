@@ -15,7 +15,7 @@ local_mqttclient.on_connect = on_connect_local
 local_mqttclient.connect(LOCAL_MQTT_HOST, LOCAL_MQTT_PORT, 60)
 print('Connected to local broker')
 
-cam = cv2.VideoCapture(0, cv2.CAP_V4L2)
+cam = cv2.VideoCapture("/dev/video0")
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 while(True):
