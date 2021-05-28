@@ -1,8 +1,8 @@
-# w251_hw3 - Summmer 2021 - Homework 3
+# W251 - Summmer 2021 - Homework 3
 ### Section 2: Alice Hua
 
 This repository contains my homework 3 **Containers, Kubernetes, and IoT/Edge** for W251 - Deep Learning in the Cloud and at the Edge at the UC Berkeley School of Information. 
-The following is the directory structure of this homework.
+The following is the directory structure of this application.
 
 ```
 +-- cloud
@@ -18,6 +18,10 @@ The following is the directory structure of this homework.
 |	+-- processor_deployment.yaml
 |	+-- processor.py
 +-- edge
+|   +-- deploy_script.sh
+|   +-- mosquitto_deployment.yaml
+|   +-- other_deployments.yaml
+|   +-- mosquittoService.yaml
 |   +-- broker
 |       +-- Dockerfile
 |   +-- detector
@@ -47,9 +51,9 @@ where clients can be either publishers or subscribers or both. Publishers
 ### Assumptions & Requirements
 
 ### Example Images
-My S3 Bucket: https://alicehua-w251-hw3.s3.amazonaws.com/
-My sample image:https://alicehua-w251-hw3.s3.amazonaws.com/face10684.png
-![](images/face10684.png)
+- My S3 Bucket: https://alicehua-w251-hw3.s3.amazonaws.com/
+- My sample image:https://alicehua-w251-hw3.s3.amazonaws.com/face10684.png
+![](images/face0.png)
  
 ### Take Aways
 - Learn how to build Docker images from scratch
