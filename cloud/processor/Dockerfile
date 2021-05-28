@@ -1,6 +1,7 @@
 FROM ubuntu:latest
 
 ENV DEBIAN_FRONTEND noninteractive
+ENV TZ=America
 #ENV PYTHONUNBUFFERED=1
 
 RUN apt-get update

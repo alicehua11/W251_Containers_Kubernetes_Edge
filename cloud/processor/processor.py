@@ -9,6 +9,7 @@ MQTT_TOPIC="faces"
 
 count = 0
 def save_img(img_bytes):
+    global count
     response = s3client.put_object( 
     Bucket='alicehua-w251-hw3',
     Body=img_bytes,
@@ -29,12 +30,19 @@ def on_message(client,userdata, msg):
     # now we need to write the msg to s3
     save_img(msg.payload)
   except Exception:
-    traceback.print_exc()
+    print("Unknown error:", sys.exec_info()[0])
 
+print("Create new instance")
 local_mqttclient = mqtt.Client()
+
+print("Bind call back function")
 local_mqttclient.on_connect = on_connect_local
-local_mqttclient.on_message = on_message
+
+print("Connect to broker")
 local_mqttclient.connect(LOCAL_MQTT_HOST, MQTT_PORT)
+
+print("Saving images...")
+local_mqttclient.on_message = on_message
 
 # go into a loop
 local_mqttclient.loop_forever()

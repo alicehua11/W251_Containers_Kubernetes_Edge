@@ -7,22 +7,26 @@ The following is the directory structure of this homework.
 ```
 +-- cloud
 |   +-- broker
+|       +-- Dockerfile
+|       +-- mosquitto_deployment.yaml
+|       +-- mosquittoService.yaml  
 |   +-- processor
+|       +
 +-- edge
-    +-- broker
-        +-- Dockerfile
-    +-- detector
-        +-- Dockerfile
-        +-- docker_script.sh
-        +-- cam.py
-   +-- logger 
-       +-- Dockerfile
-       +-- docker_script.sh
-       +-- logger.py
-   +-- forwarder
-      +-- Dockerfile
-      +-- docker_script.sh
-      +-- forwarder.py    
+|   +-- broker
+|       +-- Dockerfile
+|   +-- detector
+|        +-- Dockerfile
+|        +-- docker_script.sh
+|        +-- cam.py
+|   +-- logger 
+|       +-- Dockerfile
+|       +-- docker_script.sh
+|       +-- logger.py
+|   +-- forwarder
+|      +-- Dockerfile
+|      +-- docker_script.sh
+|      +-- forwarder.py    
 ```
 
 ![](hw3.png)
