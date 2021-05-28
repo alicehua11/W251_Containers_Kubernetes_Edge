@@ -3,7 +3,7 @@ import boto3
 
 s3client = boto3.client('s3')
 
-LOCAL_NQTT_HOST=""
+LOCAL_NQTT_HOST="mosquitto-service"
 MQTT_PORT=1883
 MQTT_TOPIC="faces"
 
@@ -16,7 +16,7 @@ def save_img(img_bytes):
     ACL='public-read',
     ContentType='image/png'
   )
-   count+=1
+    count+=1
 
 
 def on_connect_local(client, userdata, flags, rc):

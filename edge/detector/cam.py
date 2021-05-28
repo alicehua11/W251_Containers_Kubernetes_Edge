@@ -6,14 +6,13 @@ LOCAL_MQTT_HOST="mosquitto-service"
 LOCAL_MQTT_PORT=1883
 LOCAL_MQTT_TOPIC="faces"
 
-def on_connect_local(client, userdata, flags, rc):
-        print("connected to local broker with rc: " + str(rc))
-        
+def on_connect_local(client, userdata, flags, rc): 
+    print("connected to local broker with rc: " + str(rc))
+ 
 local_mqttclient = mqtt.Client()
 local_mqttclient.loop_start()
-local_mqttclient.on_connect = on_connect_local
 local_mqttclient.connect(LOCAL_MQTT_HOST, LOCAL_MQTT_PORT, 60)
-print('Connected to local broker')
+local_mqttclient.on_connect = on_connect_local
 
 cam = cv2.VideoCapture(0, cv2.CAP_V4L2)
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
@@ -37,9 +36,9 @@ while(True):
        # frame = cv2.rectangle(frame,(x,y),(x+w,y+h),(255,0,0),2)
        # cv2.imshow('feed', frame)
     # quit
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        cv2.destroyAllWindows()
-        break
+   # if cv2.waitKey(1) & 0xFF == ord('q'):
+       # cv2.destroyAllWindows()
+       # break
 
 # When everything done, release the capture
 cap.release()
