@@ -2,8 +2,8 @@
 ### Section 2: Alice Hua
 
 This repository contains my homework 3 **Containers, Kubernetes, and IoT/Edge** for W251 - Deep Learning in the Cloud and at the Edge at the UC Berkeley School of Information. 
-The following is the directory structure of this application.
-
+The following is the directory structure of this application. There are two main components, the edge and the cloud. The edge device is the Jetson NX, the IoT device is the USB webcam. The cloud component is a VM in AWS.
+The application is deployed using Kubernetes (K3s)
 ```
 +-- cloud
 |   +-- deploy_script.sh
@@ -40,20 +40,30 @@ The following is the directory structure of this application.
 ```
 
 ### How it works
+The application capture faces in a video The skeleton 
 ![](images/hw3.png)
 
 MQTT is a lightweight messaging protocol for Internet of Things (IoT). The MQTT system contains brokers and clients, 
 where clients can be either publishers or subscribers or both. Publishers 
 - MQTT Topic & Quality of Service (QoS): 
 
-`insert image here`
+![](images/mqtt.png)
+
+Three Quality of Service (QoS): match network reliability & application logic
+0 - At most once (best effort delivery, no guarantee of deliver)
+1 - At least once (guarantees delivery of at least one time to receiver, could deliver multiple times)
+2 - Exactly one (highest level, guarantees that each message is received on once, safest and slowest quality of service level)
+
 
 ### Assumptions & Requirements
+You need to set up a few things for this application to connect:
+1. You have a functioning USB webcam + Jetson NX 
+2. You have installed k3s & docker on your Jetson and on your VM
+1. You have created IAM role with AmazonS3FullAccess policy
 
-### Example Images
-- My S3 Bucket: https://alicehua-w251-hw3.s3.amazonaws.com/
-- My sample image:https://alicehua-w251-hw3.s3.amazonaws.com/face10684.png
-![](images/face0.png)
+### Example Images- My S3 Bucket: https://alicehua-w251-hw3.s3.amazonaws.com/
+- My sample image:https://alicehua-w251-hw3.s3.amazonaws.com/face10684.png  
+> ![](images/face0.png)
  
 ### Take Aways
 - Learn how to build Docker images from scratch
