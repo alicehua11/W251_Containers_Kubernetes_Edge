@@ -25,12 +25,14 @@ def on_connect_local(client, userdata, flags, rc):
     client.subscribe(MQTT_TOPIC)
 
 def on_message(client,userdata, msg):
-  try:
-    print("message received! {} bytes".format(len(msg.payload)))        
-    # now we need to write the msg to s3
-    save_img(msg.payload)
-  except Exception:
-    print("Unknown error:", sys.exec_info()[0])
+    print("Let's save some images...")
+    try:
+        print("message received! {} bytes".format(len(msg.payload)))    
+        # now we need to write the msg to s3
+        save_img(msg.payload)
+    except Exception:
+        print("Unexpected error:", sys.exec_info()[0])
+
 
 print("Create new instance")
 local_mqttclient = mqtt.Client()
