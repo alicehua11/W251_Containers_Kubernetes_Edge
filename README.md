@@ -66,7 +66,7 @@ You need to set up a few things for this application to connect:
 4. You have created IAM role with AmazonS3FullAccess policy
 
 ### Steps 
-*Note: There are more than one way to approach this, these steps are what I've taken for this assignment. 
+* Note: There are more than one way to approach this, these steps are what I've taken for this assignment. 
 1. Do the necessary setup in the **Assumptions and Requirement**. Below are some commands that are necessary for this step:
 
 ```
@@ -96,8 +96,11 @@ refer to deploy_script.sh in this repo
 * Importance: for this application, aside from Ingress and Load Balancers which were not used here, I used a fixed NodePort to get the external Kubernetes network on edge to connect another Kubernetes network on the cloud. The command lives in the ``deploy_script.sh``
 
 ### Example Images- My S3 Bucket: https://alicehua-w251-hw3.s3.amazonaws.com/
-- My sample image:https://alicehua-w251-hw3.s3.amazonaws.com/face10684.png  
-> ![](images/face0.png)
+- Ny S3 bucket: https://alicehua-w251-hw3.s3.amazonaws.com/
+- My sample image: https://alicehua-w251-hw3.s3.amazonaws.com/face10684.png  
+< p align="center">
+  <img src="![](images/face0.png)">
+</p>
  
 ### Take Aways
 - Learn how to build Docker images from scratch
