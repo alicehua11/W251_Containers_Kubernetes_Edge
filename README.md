@@ -49,9 +49,9 @@ Below is the application workflow, notice the Arm64 and X86-64 architectures are
 MQTT is a lightweight messaging protocol for Internet of Things (IoT). The MQTT system contains brokers and clients, where clients can be either publishers or subscribers or both. There can be a one to many or many to one setup where there are multiple clients and one broker.
 Publishers send data to the broker in the form of MQTT packets, which consist of a topic and a payload. The broker then distributes the data to subscribers based on the topics they have subscribed to (see references for MQTT). This message protocol has the benefits of efficient communication between machines because they only need to etablish connection with the broker instead of connecting directly to each other. There is also a benefit of scalability where MQTT can scale to connect with millions of IoT devices. It also has different levels of message delivery called Quality of Service.  
 
-Three Quality of Service (QoS): match network reliability & application logic
-0 - At most once (best effort delivery, no guarantee of deliver)
-1 - At least once (guarantees delivery of at least one time to receiver, could deliver multiple times)
+Three Quality of Service (QoS): match network reliability & application logic  
+0 - At most once (best effort delivery, no guarantee of deliver)  
+1 - At least once (guarantees delivery of at least one time to receiver, could deliver multiple times)  
 2 - Exactly one (highest level, guarantees that each message is received on once, safest and slowest quality of service level)  
 
 For this application, I used QoS 0. As explained above, the broker will deliver the message once with no guarantee nor confirmation. This makes sense because we are only doing a class assignment where only our faces are detected and there is no need to have every capture of my face. 
@@ -76,6 +76,7 @@ docker login
 sudo groupadd docker
 sudo usermod -aG docker $USER
 docker system prune (optional for when run out of space on VM)
+refer to docker_script.sh for build commands
 
 # For Kubernetes K3s 
 # install
@@ -93,7 +94,7 @@ refer to deploy_script.sh in this repo
 3. Write codes for the face detector, the logger and forwarder and the processor components. They are going to be similar to each other since they're using a MQTT python module (paho-client) to subscribe and publish messages.
 4. Write scripts to automate the docker image building process and Kubernetes deployments. 
 5. The firing order is: bring up from the cloud side, broker, processor, then edge side, forwarder, logger and finally detector.    
-* Importance: for this application, aside from Ingress and Load Balancers which were not used here, I used a fixed NodePort to get the external Kubernetes network on edge to connect another Kubernetes network on the cloud. The command lives in the ``deploy_script.sh``
+* Importance: for this application, aside from Ingress and Load Balancers which were not used here, I used a fixed NodePort that was exposed on the cloud to get the external Kubernetes network on edge to connect another Kubernetes network on the cloud. The command lives in the ``deploy_script.sh``
 
 ### Example Images 
 - Ny S3 bucket: https://alicehua-w251-hw3.s3.amazonaws.com/
