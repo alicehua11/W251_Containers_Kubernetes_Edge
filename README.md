@@ -123,7 +123,7 @@ refer to deploy_script.sh in this repo
 	- https://www.youtube.com/watch?v=X48VuDVv0do
 	- https://medium.com/@texasdave2/troubleshoot-kubectl-connection-refused-6f5445a396ed
 	- https://blog.getambassador.io/kubernetes-ingress-nodeport-load-balancers-and-ingress-controllers-6e29f1c44f2d
-- 
+ 
 - S3
 	- https://boto3.amazonaws.com/v1/documentation/api/latest/guide/s3-examples.html
 	- https://stackoverflow.com/questions/40336918/how-to-write-a-file-or-data-to-an-s3-object-using-boto3
