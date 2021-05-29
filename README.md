@@ -63,7 +63,8 @@ You need to set up a few things for this application to connect:
 1. You have a functioning USB webcam + Jetson NX 
 2. You have installed k3s & docker on your Jetson and on your VM
 3. You have created an S3 bucket and made it publicly assessible 
-4. You have created IAM role with AmazonS3FullAccess policy
+4. You have created IAM role with AmazonS3FullAccess policy 
+5. You can ssh into your VM from your Jetson using Public IPv4 DNS
 
 ### Steps 
 * Note: There are more than one way to approach this, these steps are what I've taken for this assignment. 
@@ -93,7 +94,7 @@ refer to deploy_script.sh in this repo
 2. Build images via multiple Dockerfiles, you should have image each container: detector, logger, forwarder, broker, processor
 3. Write codes for the face detector, the logger and forwarder and the processor components. They are going to be similar to each other since they're using a MQTT python module (paho-client) to subscribe and publish messages.
 4. Write scripts to automate the docker image building process and Kubernetes deployments. 
-5. The firing order is: bring up from the cloud side, broker, processor, then edge side, forwarder, logger and finally detector.    
+5. The firing order is: bring up from the cloud side, broker, service, processor, then edge side, broker, service, forwarder, logger and finally detector.    
 * Importance: for this application, aside from Ingress and Load Balancers which were not used here, I used a fixed NodePort that was exposed on the cloud to get the external Kubernetes network on edge to connect another Kubernetes network on the cloud. The command lives in the ``deploy_script.sh``
 
 ### Example Images 
