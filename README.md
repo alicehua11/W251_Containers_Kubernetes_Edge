@@ -41,7 +41,7 @@ The application is deployed using Kubernetes (K3s)
 
 ### How it works - MQTT and QoS
 This end-to-end containerized application works by getting captured faces in a video stream coming from the Iot device and transmit them to the cloud via a messaging protocol MQTT, and store these captures in an object storage S3 bucket.
-on the edge, we have the USB camera sending video stream to our face detector container (a MQTT client)  where I used OpenCV to scan for faces. The faces are cropped and grayed out, and serialized into bytes to be send (publish to the topic) to the MQTT broker. The message logger acts as a listener (another MQTT client) that listens to the topic where the messages are published to. The forwarder (our third MQTT client on the edge) receives the messages by subscribing to the same topic, and connect to the remote broker to send (publish) the messages to the cloud. The connection edge to cloud is made in the forwarder via the public IPv4 address and the exposed NodePort from the VM.   
+On the edge, we have the USB camera sending video stream to our face detector container (a MQTT client)  where I used OpenCV to scan for faces. The faces are cropped and grayed out, and serialized into bytes to be send (publish to the topic) to the MQTT broker. The message logger acts as a listener (another MQTT client) that listens to the topic where the messages are published to. The forwarder (our third MQTT client on the edge) receives the messages by subscribing to the same topic, and connect to the remote broker to send (publish) the messages to the cloud. The connection edge to cloud is made in the forwarder via the public IPv4 address and the exposed NodePort from the VM.   
 On the cloud, we have 2 containers on a lightweight VM (t2.medium with 2vCPUs and 4gb RAM), the MQTT broker and the image processor (a MQTT client). The broker receives the messages and made it available to the processor where the bytes are converted back to pictures and saved in a S3 bucket. Note, to spin up and connect these containers in practice, we use Kubernetes Deployment and Service explained in the **Steps** section.  
 Below is the application workflow, notice the Arm64 and X86-64 architectures are denoting the Jetson and VM respectively.  
 ![](images/hw3.png)
@@ -98,7 +98,7 @@ refer to deploy_script.sh in this repo
 * Importance: for this application, aside from Ingress and Load Balancers which were not used here, I used a fixed NodePort that was exposed on the cloud to get the external Kubernetes network on edge to connect another Kubernetes network on the cloud. The command lives in the ``deploy_script.sh``
 
 ### Example Images 
-- Ny S3 bucket: https://alicehua-w251-hw3.s3.amazonaws.com/
+- My S3 bucket: https://alicehua-w251-hw3.s3.amazonaws.com/
 - My sample image: https://alicehua-w251-hw3.s3.amazonaws.com/face10684.png  
 <p align="center">
   <img src="https://alicehua-w251-hw3.s3.amazonaws.com/face0.png"/>
