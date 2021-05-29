@@ -98,8 +98,8 @@ refer to deploy_script.sh in this repo
 ### Example Images 
 - Ny S3 bucket: https://alicehua-w251-hw3.s3.amazonaws.com/
 - My sample image: https://alicehua-w251-hw3.s3.amazonaws.com/face10684.png  
-< p align="center">
-  <img src="https://alicehua-w251-hw3.s3.amazonaws.com/face10684.png">
+<p align="center">
+  <img src="https://alicehua-w251-hw3.s3.amazonaws.com/face0.png"/>
 </p>
  
 ### Take Aways
