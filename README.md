@@ -95,11 +95,11 @@ refer to deploy_script.sh in this repo
 5. The firing order is: bring up from the cloud side, broker, processor, then edge side, forwarder, logger and finally detector.    
 * Importance: for this application, aside from Ingress and Load Balancers which were not used here, I used a fixed NodePort to get the external Kubernetes network on edge to connect another Kubernetes network on the cloud. The command lives in the ``deploy_script.sh``
 
-### Example Images- My S3 Bucket: https://alicehua-w251-hw3.s3.amazonaws.com/
+### Example Images 
 - Ny S3 bucket: https://alicehua-w251-hw3.s3.amazonaws.com/
 - My sample image: https://alicehua-w251-hw3.s3.amazonaws.com/face10684.png  
 < p align="center">
-  <img src="![](images/face0.png)">
+  <img src="https://alicehua-w251-hw3.s3.amazonaws.com/face10684.png">
 </p>
  
 ### Take Aways
