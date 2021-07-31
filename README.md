@@ -73,9 +73,10 @@ You need to set up a few things for this application to connect:
 ```
 # For Docker
 curl -fsSL get.docker.com | sh
-docker login
+sudo chmod 666 /var/run/docker.sock
 sudo groupadd docker
 sudo usermod -aG docker $USER
+docker login
 docker system prune (optional for when run out of space on VM)
 refer to docker_script.sh for build commands
 
